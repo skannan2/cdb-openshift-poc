@@ -42,6 +42,7 @@ public class HibernateConfiguration {
 
     @Bean
     public LocalSessionFactoryBean sessionFactory() {
+    	System.out.println("***Inside session factory***");
         LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
         sessionFactory.setDataSource(dataSource());
 	    sessionFactory.setPackagesToScan(ENTITYMANAGER_PACKAGES_TO_SCAN);
@@ -56,6 +57,7 @@ public class HibernateConfiguration {
    
     @Bean
     public DataSource dataSource() {
+    	System.out.println("***Inside datasource***"+DB_URL);
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName(DB_DRIVER);
 	    dataSource.setUrl(DB_URL);
