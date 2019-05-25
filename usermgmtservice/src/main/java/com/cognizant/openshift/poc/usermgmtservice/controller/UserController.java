@@ -25,7 +25,7 @@ import com.cognizant.openshift.poc.usermgmtservice.exception.ForbiddenException;
 import com.cognizant.openshift.poc.usermgmtservice.service.UserService;
 
 @RestController
-@RequestMapping(value = { "/api/user" })
+@RequestMapping(value = { "/user" })
 public class UserController {
 	@Autowired
 	private UserService userService;
@@ -60,7 +60,7 @@ public class UserController {
 		user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
 		userService.createUser(user);
 		HttpHeaders headers = new HttpHeaders();
-		headers.setLocation(ucBuilder.path("/api/user/{id}").buildAndExpand(user.getUserId()).toUri());
+		headers.setLocation(ucBuilder.path("/user/{id}").buildAndExpand(user.getUserId()).toUri());
 		return new ResponseEntity<Void>(headers, HttpStatus.CREATED);
 	}
 
