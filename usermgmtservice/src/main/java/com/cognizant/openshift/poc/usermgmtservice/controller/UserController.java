@@ -9,6 +9,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
@@ -25,6 +26,7 @@ import com.cognizant.openshift.poc.usermgmtservice.exception.ForbiddenException;
 import com.cognizant.openshift.poc.usermgmtservice.service.UserService;
 
 @RestController
+@CrossOrigin(origins="*")
 @RequestMapping(value = { "/api/user" })
 public class UserController {
 	@Autowired
